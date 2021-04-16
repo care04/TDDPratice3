@@ -9,8 +9,8 @@ import XCTest
 @testable import TDDPratice3
 
 extension Pizza {
-    static func fixture()  -> Pizza {
-        return Pizza()
+    static func fixture(name: String = "Margherita")  -> Pizza {
+        return Pizza(name: name)
     }
 }
 
@@ -31,13 +31,13 @@ struct MenuItem {
 }
 
 struct Pizza {
-    
+    let name: String
 }
 
 class TDDPratice3Tests: XCTestCase {
     var dataSource: MenuDataSource!
     override func setUp() {
-        dataSource = MenuDataSource(pizzas: [.fixture(), .fixture(), .fixture()])
+        dataSource = MenuDataSource(pizzas: [.fixture(name: "Margherita"), .fixture(name: "Carricciosa"), .fixture()])
     }
     
     func testHasOneSection() {
@@ -53,4 +53,5 @@ class TDDPratice3Tests: XCTestCase {
     func testItemForRowAndSection() {
         XCTAssertEqual(dataSource.item(forRow: 0, inSection: 0).title, "Margherita")
     }
+    
 }
