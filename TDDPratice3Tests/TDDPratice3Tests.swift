@@ -15,6 +15,13 @@ struct MenuDataSource {
         guard section == 0 else { return 0}
         return pizzas.count
     }
+    func item(forRow row: Int, inSection section: Int) -> MenuItem {
+        return MenuItem()
+    }
+}
+
+struct MenuItem {
+    let title =  "Margherita"
 }
 
 struct Pizza {
@@ -36,5 +43,8 @@ class TDDPratice3Tests: XCTestCase {
     func testRowsInOutOfBoundsSectionIsZero() {
         XCTAssertEqual(dataSource.numberOfRows(inSection: 1), 0)
         XCTAssertEqual(dataSource.numberOfRows(inSection: -1), 0)
+    }
+    func testItemForRowAndSection() {
+        XCTAssertEqual(dataSource.item(forRow: 0, inSection: 0).title, "Margherita")
     }
 }
