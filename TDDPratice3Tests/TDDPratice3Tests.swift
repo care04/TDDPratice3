@@ -27,7 +27,9 @@ struct MenuDataSource {
         guard section == 0 else { return 0}
         return pizzas.count
     }
-    func item(forRow row: Int, inSection section: Int) -> MenuItem {
+    func item(forRow row: Int, inSection section: Int) -> MenuItem? {
+        guard section == 0 else { return .none }
+        guard row >= 0, pizzas.count > row else { return .none }
         return MenuItem(pizza: pizzas[row])
     }
 }
@@ -57,8 +59,13 @@ class TDDPratice3Tests: XCTestCase {
         XCTAssertEqual(dataSource.numberOfRows(inSection: -1), 0)
     }
     func testItemForRowAndSection() {
-        XCTAssertEqual(dataSource.item(forRow: 0, inSection: 0).title, "Margherita")
-        XCTAssertEqual(dataSource.item(forRow: 1, inSection: 0).title, "Capricciaso")
+        XCTAssertEqual(dataSource.item(forRow: 0, inSection: 0)?.title, "Margherita")
+        XCTAssertEqual(dataSource.item(forRow: 1, inSection: 0)?.title, "Capricciaso")
     }
-    
+    func testItemForOutOfBoundsRowAndSectionIsNil() {
+        XCTAssertNil(dataSource.item(forRow: 3, inSection: 0))
+        XCTAssertNil(dataSource.item(forRow: 0, inSection: 1))
+        XCTAssertNil(dataSource.item(forRow: 2, inSection: 1))
+        XCTAssertNil(dataSource.item(forRow: -1, inSection: -1))
+    }
 }
