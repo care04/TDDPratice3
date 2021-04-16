@@ -8,6 +8,12 @@
 import XCTest
 @testable import TDDPratice3
 
+extension Pizza {
+    static func fixture()  -> Pizza {
+        return Pizza()
+    }
+}
+
 struct MenuDataSource {
     let pizzas: [Pizza]
     let numberOfSections = 1
@@ -31,7 +37,7 @@ struct Pizza {
 class TDDPratice3Tests: XCTestCase {
     var dataSource: MenuDataSource!
     override func setUp() {
-        dataSource = MenuDataSource(pizzas: [Pizza(), Pizza(), Pizza()])
+        dataSource = MenuDataSource(pizzas: [.fixture(), .fixture(), .fixture()])
     }
     
     func testHasOneSection() {
