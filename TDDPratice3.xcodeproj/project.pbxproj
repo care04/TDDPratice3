@@ -15,6 +15,9 @@
 		FAB57AFB2629D36C009A286C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB57AF92629D36C009A286C /* LaunchScreen.storyboard */; };
 		FAB57B062629D36C009A286C /* TDDPratice3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57B052629D36C009A286C /* TDDPratice3Tests.swift */; };
 		FAB57B112629D36C009A286C /* TDDPratice3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57B102629D36C009A286C /* TDDPratice3UITests.swift */; };
+		FAB57B262629DA91009A286C /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57B252629DA91009A286C /* MenuDataSource.swift */; };
+		FAB57B2B2629DA98009A286C /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57B2A2629DA98009A286C /* MenuItem.swift */; };
+		FAB57B2F2629DAB3009A286C /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57B252629DA91009A286C /* MenuDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,8 @@
 		FAB57B0C2629D36C009A286C /* TDDPratice3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDDPratice3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB57B102629D36C009A286C /* TDDPratice3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDPratice3UITests.swift; sourceTree = "<group>"; };
 		FAB57B122629D36C009A286C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB57B252629DA91009A286C /* MenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
+		FAB57B2A2629DA98009A286C /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 		FAB57AED2629D36A009A286C /* TDDPratice3 */ = {
 			isa = PBXGroup;
 			children = (
+				FAB57B242629DA87009A286C /* Model */,
 				FAB57AEE2629D36A009A286C /* AppDelegate.swift */,
 				FAB57AF02629D36A009A286C /* SceneDelegate.swift */,
 				FAB57AF22629D36A009A286C /* ViewController.swift */,
@@ -126,6 +132,15 @@
 				FAB57B122629D36C009A286C /* Info.plist */,
 			);
 			path = TDDPratice3UITests;
+			sourceTree = "<group>";
+		};
+		FAB57B242629DA87009A286C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAB57B252629DA91009A286C /* MenuDataSource.swift */,
+				FAB57B2A2629DA98009A286C /* MenuItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +275,8 @@
 				FAB57AF32629D36A009A286C /* ViewController.swift in Sources */,
 				FAB57AEF2629D36A009A286C /* AppDelegate.swift in Sources */,
 				FAB57AF12629D36A009A286C /* SceneDelegate.swift in Sources */,
+				FAB57B262629DA91009A286C /* MenuDataSource.swift in Sources */,
+				FAB57B2B2629DA98009A286C /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB57B062629D36C009A286C /* TDDPratice3Tests.swift in Sources */,
+				FAB57B2F2629DAB3009A286C /* MenuDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,12 @@ extension Pizza {
     }
 }
 
+extension MenuItem {
+    init(pizza: Pizza) {
+        self.init(title: pizza.name)
+    }
+}
+
 struct MenuDataSource {
     let pizzas: [Pizza]
     let numberOfSections = 1
@@ -22,12 +28,12 @@ struct MenuDataSource {
         return pizzas.count
     }
     func item(forRow row: Int, inSection section: Int) -> MenuItem {
-        return MenuItem()
+        return MenuItem(pizza: pizzas[row])
     }
 }
 
 struct MenuItem {
-    let title =  "Margherita"
+    let title: String
 }
 
 struct Pizza {
@@ -37,7 +43,7 @@ struct Pizza {
 class TDDPratice3Tests: XCTestCase {
     var dataSource: MenuDataSource!
     override func setUp() {
-        dataSource = MenuDataSource(pizzas: [.fixture(name: "Margherita"), .fixture(name: "Carricciosa"), .fixture()])
+        dataSource = MenuDataSource(pizzas: [.fixture(name: "Margherita"), .fixture(name: "Capricciaso"), .fixture()])
     }
     
     func testHasOneSection() {
@@ -52,6 +58,7 @@ class TDDPratice3Tests: XCTestCase {
     }
     func testItemForRowAndSection() {
         XCTAssertEqual(dataSource.item(forRow: 0, inSection: 0).title, "Margherita")
+        XCTAssertEqual(dataSource.item(forRow: 1, inSection: 0).title, "Capricciaso")
     }
     
 }
