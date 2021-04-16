@@ -8,26 +8,25 @@
 import XCTest
 @testable import TDDPratice3
 
+struct MenuDataSource {
+    let pizzas: [Pizza]
+    let numberOfSections = 1
+    func numberOfRows(inSection section: Int) -> Int {
+        return pizzas.count
+    }
+}
+
+struct Pizza {
+    
+}
+
 class TDDPratice3Tests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testHasOneSection() {
+        let dataSource = MenuDataSource(pizzas: [Pizza()])
+        XCTAssertEqual(dataSource.numberOfSections, 1)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testRowsInSection() {
+        let dataSource = MenuDataSource(pizzas: [Pizza(), Pizza(), Pizza()])
+        XCTAssertEqual(dataSource.numberOfRows(inSection: 0), 3)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
